@@ -1,0 +1,42 @@
+THESE IS THE GRAMMER THAT I HAVE DECIDED FOR THE LANGUAGE.
+NAME OF THE LANGUAGE IS: "Dude's Awesome Dedication, Determination and Yearning" (DADDY)
+
+okay so i am going to write an interpreter in next ten days,
+a very basic interpreter in golang which has
+
+function -> phi
+operations -> +-*/=
+keywords -> return, let
+delimiters -> {}, (), @
+comment -> $
+
+i am going to write tokens, lexers, parser,ast for above-mentioned
+things first, then extend it to have conditionals, and if-else statements.
+if-else-> no else but ifNOT and no else if but orIF
+if condition then{
+
+}orIF condition then{
+
+}ifNOT{
+
+}
+
+conditionals->
+== -> equals
+> -> greater than
+>e -> greater than equals to 
+< -> less than
+<e -> less than equals to
+NOT== -> not equals to
+
+these language will not have switch-cases.
+
+loops-> there will only be one loop
+using range
+from [index] to [index] in range [datastructure] do{
+	:	$ loops and conditionals statements will start from ':'
+}
+without range
+from [number] to [number] do{
+	:
+}
