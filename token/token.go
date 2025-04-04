@@ -3,36 +3,37 @@ package token
 type TokenType string
 
 // type = "string which is the value of the token of that type"
-type token struct {
-	Type  TokenType
+type Token struct {
+	Type    TokenType
 	Literal string
 }
 
-const(
+const (
 	ILLEGAL = "ILLEGAL"
-	EOF = "EOF"
+	EOF     = "EOF"
 
 	// literals and identifiers
 	IDENT = "IDENT"
-	INT = "INT"
+	INT   = "INT"
 
 	//delimiters
 	COMMENT = "$"
-	STOP = "@"
-	RBRACE = "{"
-	LBRACE = "}"
-	RPAREN = "("
-	LPAREN = ")"
-	
+	STOP    = "@"
+	RBRACE  = "{"
+	LBRACE  = "}"
+	RPAREN  = "("
+	LPAREN  = ")"
+	COMMA   = ","
+
 	//Keywords
 	FUNCTION = "FUNCTION"
-	LET = "LET"
-	RETURN = "RETURN"
+	LET      = "LET"
+	RETURN   = "RETURN"
 
 	//operators
 	ASSIGN = "="
-	MULT = "*"
-	ADD = "+"
-	MINUS = "-"
+	MULT   = "*"
+	ADD    = "+"
+	MINUS  = "-"
 	DIVIDE = "/"
 )
