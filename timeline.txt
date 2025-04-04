@@ -7,7 +7,7 @@ a very basic interpreter in golang which has
 function -> phi
 operations -> +-*/=
 keywords -> return, let
-delimiters -> {}, (), @
+delimiters -> {}, (), @, ,
 comment -> $
 
 i am going to write tokens, lexers, parser,ast for above-mentioned
