@@ -22,6 +22,8 @@ func New(input string) *Lexer {
 func (l *Lexer) consumeToken_Advance() token.Token {
 	var tok token.Token
 
+	l.skipWhitespaces()	
+
 	switch l.ch {
 	case '=':
 		tok = newToken(token.ASSIGN, l.ch)
@@ -51,15 +53,27 @@ func (l *Lexer) consumeToken_Advance() token.Token {
 	default:
 		if isLetter(l.ch){
 			tok.Literal = l.readIdentifier_advance()
+			tok.Type = token.LookUpIdent(tok.Literal)
+			return tok
+		}else if isDigit(l.ch){
+			tok.Type = token.INT 
+			tok.Literal = l.readNumber_advance()
 			return tok
 		}else{
-			tok = newToken(tok.ILLEGAL, l.ch)
+			tok = newToken(token.ILLEGAL, l.ch)
 		}
 	}
 	l.advance()
 	return tok
 }
 
+func (l *Lexer) skipWhitespaces(){
+	for l.ch == ' ' || l.ch == '\n' || l.ch == '\t' || l.ch == '\r'{
+		l.advance()
+	}
+}
+
+// in the book it is readIdentifier only
 func (l *Lexer) readIdentifier_advance() string{
 	position := l.position
 	for isLetter(l.ch){
@@ -68,8 +82,20 @@ func (l *Lexer) readIdentifier_advance() string{
 	return l.input[position: l.position]
 }
 
+func (l *Lexer) readNumber_advance() string{
+	position := l.position
+	for isDigit(l.ch){
+		l.advance()
+	}
+	return l.input[position: l.position]
+}
+
 func isLetter(ch byte) bool{
 	return 'a' <= ch &&  ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
+}
+
+func isDigit(ch byte) bool{
+	return '0' <= ch && ch <= '9'
 }
 
 func newToken(tokenType token.TokenType, ch byte) token.Token{
