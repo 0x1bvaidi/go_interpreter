@@ -70,7 +70,7 @@ func TestingNextToken(t *testing.T) {
 	l := New(input)
 
 	for i, tt := range tests {
-		tok := l.consumeToken_Advance()
+		tok := l.ConsumeToken_Advance()
 
 		if tok.Type != tt.expectedType {
 			t.Fatalf("test[%d] - tokentype is wrong. expected: %q, received: %q\n", i, tt.expectedType, tok.Type)
