@@ -19,7 +19,7 @@ func New(input string) *Lexer {
 
 // the struct name in token is Token, confusion due to same name but different way of writing
 // the method in the book is NextToken()
-func (l *Lexer) consumeToken_Advance() token.Token {
+func (l *Lexer) ConsumeToken_Advance() token.Token {
 	var tok token.Token
 
 	l.skipWhitespaces()	
